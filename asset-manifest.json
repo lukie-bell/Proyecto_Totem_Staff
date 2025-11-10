@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Proyecto_Totem_Staff/static/css/main.04ec12c2.css",
-    "main.js": "/Proyecto_Totem_Staff/static/js/main.bf6a8adf.js",
+    "main.js": "/Proyecto_Totem_Staff/static/js/main.ce1f2c47.js",
     "static/media/epet20.png": "/Proyecto_Totem_Staff/static/media/epet20.c78048d452a27fb5f2e7.png",
     "index.html": "/Proyecto_Totem_Staff/index.html",
     "main.04ec12c2.css.map": "/Proyecto_Totem_Staff/static/css/main.04ec12c2.css.map",
-    "main.bf6a8adf.js.map": "/Proyecto_Totem_Staff/static/js/main.bf6a8adf.js.map"
+    "main.ce1f2c47.js.map": "/Proyecto_Totem_Staff/static/js/main.ce1f2c47.js.map"
   },
   "entrypoints": [
     "static/css/main.04ec12c2.css",
-    "static/js/main.bf6a8adf.js"
+    "static/js/main.ce1f2c47.js"
   ]
 }
