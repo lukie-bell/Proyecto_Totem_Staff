@@ -1,0 +1,1053 @@
+/* pantalla Empleados */
+
+body {
+    margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-y: auto;
+  font-family: sans-serif;
+}
+
+.eliminar {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.eliminar-btn {
+  padding: 8px 15px;
+  border: none;
+  background: #e74c3c;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.eliminar-btn:hover {
+  background: #c0392b;
+}
+
+.lista {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px;
+  justify-items: center;
+  margin-top: 20px;
+
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 10px; 
+}
+
+.partedearriba{
+    background-color: #1a5b81;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3;
+    align-items: center;
+    justify-content: center;
+    grid-column-gap: 75px;
+}
+
+.caja1{
+    grid-column: 1;
+}
+
+.caja2{
+    grid-column: 2;
+}
+
+.caja3{
+    grid-column: 3;
+}
+
+
+/* Contenedor principal que alinea en fila */
+.cajadecajas {
+    display: flex;
+    flex-direction: row; /* Los hijos se alinean horizontalmente */
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap; /* Opcional, permite que bajen si no entra todo */
+}
+
+/* Caja individual */
+    .cajas {
+      margin-top: 100px;
+      background-color: #333;
+      border-radius: 20px;
+      width: 900px;
+      height: 80%;
+      padding: 20px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .citas {
+      background-color: #A1DDF0;
+      color: black;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 14px;
+      padding: 10px;
+      margin: 20px;
+      display: inline-block;
+      box-shadow: 10px 10px 10px rgba(0,0,0,0.3);
+      height: auto;
+      width: auto;
+    }
+
+    .citas p{
+      color: #222222;
+    }
+
+    .eliminar-btn {
+      background-color: #F28B82;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .eliminar-btn:hover {
+      background-color: #e06666;
+    }
+
+    /* pantalla formularios */
+
+    .formulario{
+  display: flex;
+  justify-content: center;
+ transform: translate(0px, 98px);
+}
+
+/*le damos forma y estilo al cuerpo dal formulario*/
+
+.formu {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;          
+  width: 620px;    
+  background-color: #222222;
+  padding: 0px 25px; 
+  border-radius: 20px;
+  position: relative;
+  border: 2px solid black;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  min-height: auto;  
+  box-sizing: border-box;
+}
+
+/*agregamos formas y las animamos (circulo)*/
+
+.formtxt {
+  font-size: 28px;
+  color: #5FA8C0;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+}
+
+.formtxt::before,.formtxt::after {
+position: relative;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background-color: #5FA8C0;
+}
+
+.formtxt::before {
+transform: translate(-140px, 27px);
+  width: 18px;
+  height: 18px;
+  background-color: #5FA8C0;
+}
+
+.formtxt::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+  gap: 6px;
+}
+
+/*todos los divs que contienen label + input/select*/
+form > div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+form > div > label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #F5F5F5;
+}
+
+/* Inputs y selects (casilleros) */
+input,
+select {
+  padding: 4px;
+  background-color:#5FA8C0;;
+  border: 1px solid #F5F5F5;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+input{
+    color: #E3F2FD;
+    text-shadow: 0 0 3px black;
+    font-weight: 700;
+}
+
+select{
+    color: #E3F2FD;
+    text-shadow: 0 0 3px black;
+    font-weight: 700;
+}
+
+option{
+    color: #E3F2FD;
+    text-shadow: 0 0 3px black;
+    font-weight: 700;
+}
+
+input:focus,
+select:focus {
+  border-color: #5EB8D0;
+  box-shadow: 0 0 5px rgba(65, 105, 225, 0.5);
+}
+/*textarea (tamaño y estilo) */
+textarea {
+  padding: 4px;
+  background-color: #5FA8C0;
+  border: 1px solid #F5F5F5;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  color: #E3F2FD;
+  text-shadow: 0 0 3px black;
+  font-weight: 700;
+  resize: vertical; 
+}
+
+textarea:focus {
+  border-color: #5EB8D0;
+  box-shadow: 0 0 5px rgba(65, 105, 225, 0.5);
+}
+/* Botones de restaurar y enviar */
+button {
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #253137;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-right: 10px;
+  transform: translate(4px, -20px);
+}
+
+.subt{
+background-color: rgb(135, 239, 135);
+font-weight: 700;
+
+}
+
+.subt:hover{
+    background-color: rgb(45, 179, 45);
+    color: #F5F5F5;
+    font-weight: 700;
+}
+/* Contenedor para los botones para que esten juntos */
+.flex {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}
+/*parte de la animacion y posicion del circulo*/
+@keyframes pulse {
+  from {
+    transform: translate(-140px, -23px) scale(0.9);
+    opacity: 1;
+  }
+
+  to {
+    transform: translate(-140px, -23px) scale(1.8);
+    opacity: 0;
+  }
+}
+/* estilo para las alertas*/
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-contenido {
+  background: #253137;
+  padding: 20px 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0px 0px 10px black;
+}
+
+.hpop{
+  font-size: 35px;
+  color: rgb(255, 95, 95);
+}
+
+.popup-contenido pre {
+  text-align: left;
+  white-space: pre-wrap;
+  margin: 15px 0;
+  font-size: 18px;
+  color: #F5F5F5;
+}
+
+.popup-contenido button {
+  padding: 10px 20px;
+  background-color: #5FA8C0;
+  border: none;
+  border-radius: 5px;
+  color: #F5F5F5;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.mensaje-error {
+  min-height: 18px; /* o el alto que necesites para un mensaje */
+  margin: 0;
+  visibility: hidden; /* Oculto pero ocupa espacio */
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.mensaje-error.visible {
+  visibility: visible;
+}
+
+/* Pantalla Login */
+
+/* Caja del login */
+.page-login {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  height: 100vh;           
+}
+
+/* Contenido del login */
+.message-box {
+  background-color: #333333;
+  border-radius: 15px;
+  padding: 50px;
+  width: 500px;
+  max-width: 90%;
+  text-align: center;
+  font-size: 24px;
+  line-height: 1.5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 5px solid #5FA8C0;
+  color: #fff;
+}
+
+.message-box-recibido p {
+  margin: 20px;
+}
+
+.google-button {
+  display: flex;
+  align-items: center;       /* Centra verticalmente el icono y texto */
+  justify-content: center;   /* Centra horizontalmente dentro del botón */
+  background-color: white;
+  padding: 10px 20px;
+  margin: auto;         /* CENTRA el botón horizontalmente */
+  cursor: pointer;
+}
+
+
+.google {
+  width: 30px;
+  height: 30px;
+}
+
+.google-button p {
+  margin: 0;
+  color: #253137
+}
+
+/* estilo para los botones*/
+button{     
+  flex-direction: row;    
+  justify-content: center;
+  align-items: center;    
+  gap: 15px;              
+  margin-top: 20px;
+}
+
+.img-header{
+    transform: translate(-92px, 5px);
+    width: 30px;
+    height: 30px;
+}
+
+ /* estilo para el h1 de placeholder*/
+h1{
+    font-size: 40px;
+    margin: 0px 10px 40px 10px;
+    color:#5FA8C0;
+}
+
+/* estilo para los placeholder*/
+input::placeholder{
+    color:#F5F5F5;
+}
+
+/* animación de hover para los botones*/
+button:hover{
+    background-color: #D1EDF9;
+}
+
+/* Pantalla recibido */
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #D1EDF9;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #A3D9EE;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 70px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.school-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2681AE;
+}
+
+p{
+    color: aliceblue;
+    margin-right: 50px;
+}
+
+.header-center {
+    display: flex;
+    gap: 15px;
+}
+
+.header-button {
+    background-color: #2681AE;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.header-button:hover {
+    background-color: #1a5b81;
+}
+
+.header-right {
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+/* Pantalla Recibido */
+
+.page-recibido {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  height: 100vh;
+}
+
+.message-box-recibido {
+  background-color: #333333;
+  border-radius: 15px;
+  padding: 50px;
+  width: 500px;
+  max-width: 90%;
+  text-align: center;
+  font-size: 24px;
+  line-height: 1.5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 5px solid #5FA8C0;
+  justify-content: center;
+  align-items: center;
+}
+
+.school-logo {
+    height: 150px;
+    width: 150px;
+    margin: auto;
+}
+
+.form-container {
+    background-color: #D1EDF9;
+    border: 2px solid #2681AE;
+    border-radius: 15px;
+    padding: 30px;
+    width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-label {
+    font-size: 18px;
+    color: #333;
+    width: 90px;
+    text-align: right;
+}
+
+.form-input {
+    flex-grow: 1;
+    background-color: #CDE8F2;
+    border: 1px solid #2681AE;
+    border-radius: 10px;
+    padding: 12px 15px;
+    font-size: 18px;
+    color: #333;
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: #1a5b81;
+    box-shadow: 0 0 5px rgba(38, 129, 174, 0.5);
+}
+
+.form-textarea {
+    flex-grow: 1;
+    background-color: #CDE8F2;
+    border: 1px solid #2681AE;
+    border-radius: 10px;
+    padding: 12px 15px;
+    font-size: 18px;
+    color: #333;
+    resize: vertical;
+    min-height: 80px;
+    outline: none;
+}
+
+.form-textarea:focus {
+    border-color: #1a5b81;
+    box-shadow: 0 0 5px rgba(38, 129, 174, 0.5);
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-left: 40px;
+    margin-top: 200px;
+}
+
+.action-button {
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 150px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.restore-button {
+    background-color: #EE6D6C;
+}
+
+.restore-button:hover {
+    background-color: #d15a59;
+}
+
+.send-button {
+    background-color: #76C279;
+}
+
+.send-button:hover {
+    background-color: #61a364;
+}
+
+/* Agregar Preceptor */
+
+.cajapre {
+  position: relative;
+  text-align: center;
+}
+
+.botonpre {
+  background-color: #5FA8C0;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-size: 20px;
+  margin: 10px;
+}
+
+.botonpre:hover {
+  background-color: #4a91aa;
+}
+
+.cajapre > div:nth-child(2) {
+position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.6); 
+  backdrop-filter: blur(4px); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.cajapre > div:nth-child(2) > div {
+  background-color: #1e1e1e;
+  border-radius: 20px;
+  padding: 35px 45px;
+  width: 520px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.8);
+  position: relative;
+  border: 2px solid #5FA8C0;
+  color: white;
+  animation: popupFadeIn 0.3s ease;
+}
+
+@keyframes popupFadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.cajapre > div:nth-child(2) > div > .botonpre {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  color: #bbb;
+  font-size: 24px;
+  transition: color 0.2s ease;
+  padding: 0;
+}
+
+.cajapre > div:nth-child(2) > div > .botonpre:hover {
+  color: #fff;
+}
+
+.cajapre h2 {
+  color: #5FA8C0;
+  font-size: 26px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.formpre {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.labelpre {
+  font-size: 18px;
+  color: #5FA8C0;
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+  text-align: left;
+}
+
+.inputpre {
+  width: auto;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #444;
+  background-color: #2a2a2a;
+  color: #fff;
+  font-size: 16px;
+  transition: border 0.2s ease;
+}
+
+.inputpre:focus {
+  border-color: #5FA8C0;
+  outline: none;
+}
+
+.enviarpre {
+  background-color: #5FA8C0;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 18px;
+  width: 518px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.enviarpre:hover {
+  background-color: #4a91aa;
+}
+
+/* Pop up Alertas de agregar */
+
+.bloqueo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000; 
+}
+
+.popupscont {
+  background: #253137;
+  padding: 20px 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0px 0px 10px black;
+}
+
+.hpop{
+  font-size: 35px;
+  color: rgb(255, 95, 95);
+}
+
+.popupscont pre {
+  text-align: left;
+  white-space: pre-wrap;
+  margin: 15px 0;
+  font-size: 18px;
+  color: #F5F5F5;
+}
+
+.popupscont button {
+  padding: 10px 20px;
+  background-color: #5FA8C0;
+  border: none;
+  border-radius: 5px;
+  color: #F5F5F5;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.mensajeer {
+  min-height: 18px; /* o el alto que necesites para un mensaje */
+  margin: 0;
+  visibility: hidden; /* Oculto pero ocupa espacio */
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.mensajeer.visible {
+  visibility: visible;
+}
+
+/* ABM */
+.list{
+  display: block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.cajaabm{
+  display: block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.botad{
+  background-color: #5FA8C0;
+  border: 2px;
+  color: #fff;
+  font-size: 24px;
+  padding: 10px;
+}
+
+.botpre{
+ background-color: #5FA8C0;
+  border: 2px;
+  color: #fff;
+  font-size: 24px;
+  padding: 10px;
+}
+
+.botpre:hover, .botad:hover {
+  background-color: #4a91aa;
+  transition: color 1s ease;
+}
+
+.botonesabm{
+  display: block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 50px;
+}
+
+/* Listas */
+
+.botmod{
+ background-color: #5FA8C0;
+  border-radius: 15px;
+  color: #fff;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.botelim{
+  background-color: #5FA8C0;
+  border-radius: 15px;
+  color: #fff;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.opc{
+  padding: 10px;
+}
+
+.botmod:hover, .botelim:hover {
+  background-color: #4a91aa;
+  transition: color 1s ease;
+}
+
+.listatabla{
+  display: flex;
+  width: 600px;
+  background-color: #1e1e1e;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: #fff;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 15px;
+  border: 5px solid #5FA8C0;
+}
+
+.listas-contenedor {
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  min-height: 50vh;      
+}
+
+/* ABM */
+
+.container {
+  max-width: 1200px;
+  margin: 50px auto;
+  display: flex;
+  gap: 20px;
+}
+
+.sidebar {
+  width: 200px;
+  height: 80vh;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.sidebar button {
+  width: 100%;
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 22px;
+  padding: 12px;
+  margin: 10px -3px;
+  font-weight: 700;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.sidebar button:hover {
+  background-color: #A1DDF0;
+}
+
+.content {
+  flex: 1;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+.section-title {
+  font-size: 24px;
+  color: #FFFFFF;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.add-button {
+  background-color: #5b7ea0;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 15px;
+  transition: background-color 0.3s;
+}
+
+.add-button:hover {
+  background-color: #4a6a8a;
+}
+
+.table-wrapper {
+  border: 4px solid #000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.main-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #7a98bb;
+  color: white;
+}
+
+.main-table thead {
+  background-color: #111;
+}
+
+.main-table th {
+  padding: 15px 10px;
+  text-align: left;
+  font-weight: 800;
+  text-transform: uppercase;
+  border-right: 1px solid #222;
+}
+
+.main-table td {
+  padding: 15px 10px;
+  border-top: 2px solid rgba(0,0,0,0.25);
+  border-right: 1px solid rgba(0,0,0,0.25);
+}
+
+.main-table th:last-child,
+.main-table td:last-child {
+  border-right: none;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.modify-btn, .delete-btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.modify-btn {
+  background-color: #f7bf08;
+  color: white;
+}
+
+.modify-btn:hover {
+  background-color: #ffd000;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #ff4c4c;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: rgb(255, 0, 0);
+  color: white;
+}

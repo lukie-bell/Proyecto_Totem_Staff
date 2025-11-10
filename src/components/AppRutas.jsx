@@ -1,0 +1,52 @@
+//ESTE ES EL epprouter.jsx
+import React, { useEffect } from "react";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import PageEmpleados from "../pages/PageEmpleados.jsx";
+import Inicio from "../pages/Inicio";
+import Autentificacion from "./login_empleados";
+import PageRecibido from "../pages/PageRecibido";
+import ABM from "../pages/ABM";
+
+const AppRouter = ({ user, setUser }) => {
+  const navigate = useNavigate();
+  const { rol } = user || {};
+
+  useEffect(() => {
+    if (rol === "admins") navigate("/ABM");
+    else if (rol === "preceptores") navigate("/Empleados");
+  }, [rol, navigate]);
+
+  const redirigirSiLogueado = () => {
+    if (!user || !rol) return <Autentificacion setUser={setUser} />;
+    if (rol === "admins") return <Navigate to="/ABM" replace />;
+    if (rol === "preceptores") return <Navigate to="/Empleados" replace />;
+    return <Navigate to="/" replace />;
+  };
+
+  return (
+    <Routes>
+      {/*rutas sin logeo */}
+      <Route path="/" element={redirigirSiLogueado()} />
+
+      {/*rutas para los admiSSS */}
+      {rol === "admins" && (
+        <>
+          <Route path="/Empleados" element={<PageEmpleados />} />
+          <Route path="/ABM" element={<ABM />} />
+        </>
+      )}
+
+      {/*rutas para los preseptorESSSS */}
+      {rol === "preceptores" && (
+        <>
+          <Route path="/Empleados" element={<PageEmpleados />} />
+        </>
+      )}
+
+      {/* Ruta por defecto */}
+      <Route path="*" element={<Navigate to="/login" replace />} />
+    </Routes>
+  );
+};
+
+export default AppRouter;
